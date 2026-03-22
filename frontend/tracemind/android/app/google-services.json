@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "938700010538",
+    "project_id": "tracemind-2682c",
+    "storage_bucket": "tracemind-2682c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:938700010538:android:c1ce4afa7d482572c9ff53",
+        "android_client_info": {
+          "package_name": "com.tracemindapp.tracemind"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAtWRJmr5aju9DMkiFQ7idmA7LZNr8kTY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

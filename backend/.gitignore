@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# AI Models
+*.safetensors
+*.h5
+*.bin
+*.pt
+*.pth
+*.onnx
+spm.model
+
+# Sensitive credentials
+serviceAccountKey.json
+*.json.key
+
+# Reports (if auto-generated)
+reports/
+
+# Env
+.env

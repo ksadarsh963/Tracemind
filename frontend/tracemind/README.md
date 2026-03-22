@@ -1,0 +1,7 @@
+# tracemind
+
+A MULTIMODAL EMOTION EVALUATION SYSTEM FOR PSYCHOLOGISTS
+
+## Getting Started
+
+
