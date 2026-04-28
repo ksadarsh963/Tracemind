@@ -121,6 +121,44 @@ def analyze_video():
         if os.path.exists(temp_path):
             os.remove(temp_path)
 
+@app.route('/register', methods=['POST'])
+def register_user():
+    try:
+        # 1. Grab the JSON data sent from the Flutter app
+        data = request.json
+        
+        # Log it to the terminal so you can see what Flutter is sending
+        print(f"📥 Registration Request Received: {data}")
+
+        # 2. Extract the user details (adjust these keys based on what Flutter sends)
+        email = data.get('email')
+        uid = data.get('uid')
+        name = data.get('name')
+
+        if not email or not uid:
+            return jsonify({"status": "error", "message": "Missing email or UID"}), 400
+
+        # 3. Save the new doctor/user to your Firestore Database
+        doc_ref = db.collection('users').document(uid)
+        doc_ref.set({
+            'name': name,
+            'email': email,
+            'role': 'doctor',
+            'created_at': datetime.datetime.now()
+        })
+        print(f"✅ User {email} saved to database!")
+
+        # 4. Return success back to the Flutter app!
+        return jsonify({"status": "success", "message": "Registration complete"}), 200
+
+    except Exception as e:
+        print(f"❌ Registration Error: {e}")
+        return jsonify({"status": "error", "message": str(e)}), 500
+
+@app.route('/health')
+def health():
+    return jsonify({"status": "ok", "message": "Tracemind is running"}), 200
+
 if __name__ == '__main__':
     # Ensuring the host is set to 0.0.0.0 to allow mobile connections
     app.run(host='0.0.0.0', port=5000, debug=True)
